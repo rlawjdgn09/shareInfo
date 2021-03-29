@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.spring5.mapper.ReplyMapper">
+<!-- 	<select id="getReplyList" resultType="org.spring5.domain.ReplyVO">
+		select * from shareInfo.bdReply
+		where bno =	#{bno}
+		order by rno asc
+	</select> -->
+	<select id="getReplyList" resultType="org.spring5.domain.ReplyVO">	
+		<![CDATA[
+			select rno, bno, replyContent, memberId, replyDate, replyUpdateDate
+			from
+				(
+				select /*+INDEX(reply idx_reply) */
+					rownum rn, rno, bno, replyContent, memberId, replyDate, replyUpdateDate
+				from shareInfo.bdReply
+				where bno =	#{bno}
+				and rno >= 0
+				and rownum <= #{cri.pageNum} * #{cri.amount}
+				)
+			where rn > (#{cri.pageNum} - 1) * #{cri.amount}
+			order by rno desc
+			]]> 
+	</select>
+	<!-- <select id="getReplyListPaging" resultType="org.spring5.domain.ReplyVO">
+		<![CDATA[
+		select rno, bno, replyContent, memberId, replyDate, updateDate
+		from
+			(
+			select /*+INDEX(reply idx_reply) */
+				rownum rn, rno, bno, replyContent, memberId, replyDate, updateDate
+			from shareInfo.bdReply
+			where bno =	#{bno}
+			and rno > 0
+			and rownum <= #{cri.pageNum} * #{cri.amount}
+			)
+		where rn > (#{cri.pageNum} - 1) * #{cri.amount}
+		]]> 
+	</select> -->
+	<select id="getReplyCountByBno" resultType="Long">
+		select count(*)
+		from shareInfo.bdReply
+		where bno=#{bno}
+	</select>
+	
+	<select id="readReply" resultType="org.spring5.domain.ReplyVO">
+		select * from shareInfo.bdReply where rno = #{rno}
+	</select>
+	
+	
+	<insert id="insertReply" parameterType="org.spring5.domain.ReplyVO">
+		insert into shareInfo.bdReply
+		values (seq_bdreply.nextval,#{replyContent},default,default,#{memberId},#{bno})
+	</insert>
+
+	
+	
+	<delete id="deleteReply">
+		delete from shareInfo.bdReply where rno = #{rno}
+	</delete>
+	
+	<update id="modifyReply" parameterType="org.spring5.domain.ReplyVO">
+		update shareInfo.bdReply
+		set replyContent = #{replyContent}, replyUpdateDate = default
+		where rno = #{rno}
+		
+	</update>
+	
+	
+</mapper>

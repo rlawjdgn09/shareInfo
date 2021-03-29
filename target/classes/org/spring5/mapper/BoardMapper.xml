@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.spring5.mapper.BoardMapper">
+	<select id="getBoardList" resultType="org.spring5.domain.BoardVO">
+		select *
+		from shareInfo.board
+		where flag='T'
+		order by bno desc
+	</select>
+	
+	<select id="getBoardListWithPaging"  resultType="org.spring5.domain.BoardVO">
+	 <![CDATA[
+		select *
+		from(select /*+INDEX_DESC(shareInfo.board pk_board) */
+				rownum rn, a.*
+			 from shareInfo.board a
+			  where
+		]]>
+			
+			<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+				<foreach item='type' collection="typeArr">
+					<trim prefix="OR">
+						<choose>
+							<when test="type=='T'.toString()">
+								title like '%'||#{keyword}||'%'
+							</when>
+							<when test="type=='C'.toString()">
+								contents like '%'||#{keyword}||'%'
+							</when>
+							<when test="type=='W'.toString()">
+								memberId like '%'||#{keyword}||'%'
+							</when>
+						</choose>
+					</trim>	
+				</foreach>
+			</trim>
+			<choose>
+			<when test="category!=null and category!=''">
+				<![CDATA[
+				category=#{category} and flag='T' AND rownum  <= #{pageNum}*#{amount}
+				]]>
+			</when>
+			<otherwise>
+				<![CDATA[
+					flag='T' AND rownum  <= #{pageNum}*#{amount}
+				]]>
+			</otherwise>
+		</choose>	
+		<![CDATA[	
+			 )
+		where rn > (#{pageNum}-1)*#{amount}
+		order by bno desc 
+		]]>
+	</select>
+	
+	<select id="boardListCount"  resultType="Integer">
+		select count(*)
+		from shareInfo.board	
+		<where>
+		<choose>
+			<when test="category!=null and category!=''">
+				<![CDATA[
+				category=#{category} and flag='T'
+				]]>
+			</when>
+			<otherwise>
+				flag='T'
+			</otherwise>
+		</choose>
+		<if test="keyword!=null and keyword!=''">
+				<trim prefix="AND (" suffix=") " prefixOverrides="OR" >
+					<foreach item='type' collection="typeArr">
+						<trim prefix="OR" >
+							<choose>
+								<when test="type=='T'.toString()">
+									title like '%' || #{keyword} || '%'
+								</when>
+								<when test="type=='C'.toString()">
+									contents like '%' || #{keyword} || '%'
+								</when>
+								<when test="type=='W'.toString()">
+									memberId like '%' || #{keyword} || '%'
+								</when>
+							</choose>
+						</trim>
+					</foreach>
+				</trim>
+			</if>
+		</where>	
+			
+	</select>
+	
+	
+	<select id="readBoard" resultType="org.spring5.domain.BoardVO" parameterType="Long">
+		select *
+		from shareInfo.board
+		where bno=#{bno}
+	</select>
+	
+	<insert id="insertBoard" parameterType="org.spring5.domain.BoardVO">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			SELECT shareInfo.seq_board.nextval FROM dual
+		</selectKey>
+		insert into shareInfo.board
+		values (#{bno},#{category},#{title},#{contents},default,default,#{memberId},default,default)
+	</insert>
+	
+	<update id="modifyBoard" parameterType="org.spring5.domain.BoardVO">
+		update shareInfo.board
+		set title=#{title}, category=#{category},contents=#{contents},updateDate=default
+		where bno=#{bno}
+	</update>
+	
+	<update id="removeBoard" parameterType="Long">
+		update shareInfo.board
+		set flag='F'
+		where bno=#{bno}
+	</update>
+	
+	
+	
+	<update id="upCountView" parameterType="Long">
+		update shareInfo.board
+		set countView=countView+1
+		where bno=#{bno}
+	</update>
+
+
+
+</mapper>

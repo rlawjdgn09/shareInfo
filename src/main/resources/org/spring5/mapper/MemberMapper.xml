@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.spring5.mapper.MemberMapper">
+	<resultMap type="org.spring5.domain.MemberVO" id="memberMap">
+		<id property="memberId" column="memberId"/>
+		<result property="memberId" column="memberId"/>
+		<result property="memberPassword" column="memberPassword"/>
+		<result property="memberName" column="memberName"/>
+		<result property="memberEmail" column="memberEmail"/>
+		<result property="memberPhoneNumber" column="memberPhoneNumber"/>
+		<result property="joinDate" column="joinDate"/>
+		<result property="enabled" column="enabled"/>
+		<collection property="authList" resultMap="authMap"/>
+	</resultMap>
+	
+	
+	<resultMap type="org.spring5.domain.AuthVO" id="authMap">
+		<result property="memberId" column="memberId"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	
+	<select id="selectInfo" parameterType="String" resultType="org.spring5.domain.MemberVO">
+		select * 
+		from shareInfo.member
+		where memberId=#{memberId}
+	</select>
+	
+	<insert id="insertMember" parameterType="org.spring5.domain.MemberVO">
+		insert into shareInfo.member
+		values (#{memberId},#{memberPassword},#{memberName},#{memberEmail},#{memberAddress},#{memberPhoneNumber},default,default)
+	</insert>
+	
+	<insert id="insertMemberAuth" parameterType="String">
+		insert into shareInfo.auth
+		values (#{memberId},default)
+	</insert>
+	
+	<update id="modifyMember" parameterType="org.spring5.domain.MemberVO">
+		update shareInfo.member
+		set memberPassword=#{memberPassword}, memberName=#{memberName}, memberEmail=#{memberEmail},memberAddress=#{memberAddress},memberPhoneNumber=#{memberPhoneNumber}
+		where memberId=#{memberId}
+	</update>
+	
+	<update id="removeMember" parameterType="org.spring5.domain.MemberVO">
+		update shareInfo.member
+		set enabled='0'
+		where memberId=#{memberId}
+	</update>
+	
+	<select id="readAuth" resultMap="memberMap">
+	 <![CDATA[
+		select mem.*, auth.auth
+		from shareInfo.member mem INNER JOIN shareInfo.Auth auth on mem.memberId=auth.memberId
+		where mem.memberId=#{memberId} and enabled='1'
+	 ]]>
+	</select>
+</mapper>
