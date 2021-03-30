@@ -27,7 +27,7 @@
 ![image](https://user-images.githubusercontent.com/66732896/112925056-32c14100-914c-11eb-97ce-58ee051ac3aa.png)
 
 
--스프링 시큐리티를 이용 하였으며 사용자에 대해 권한이 인증이 된다면 로그인   
+-Spring Security 이용 하였으며 사용자에 대해 권한이 인증이 된다면 로그인   
 -로그인시 db에 저장된 권한에 따라 사용 기능을 구분
 
 - 마이 페이지
