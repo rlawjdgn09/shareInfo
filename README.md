@@ -57,7 +57,7 @@
 ![image](https://user-images.githubusercontent.com/66732896/112926119-f098ff00-914d-11eb-85ef-a9741d910ff0.png)
 
 -사용자로써 회원이 인증이 될 시 게시판 및 댓글 글쓰기/수정 및 삭제 가능   
--REST API 방식으로 AJAX릴 이용하여 업로드, 댓글 목록 및 페이징 구현
+-REST API 방식으로 AJAX 이용하여 업로드, 댓글 목록 및 페이징 구현
 
 
 
