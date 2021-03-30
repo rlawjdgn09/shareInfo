@@ -14,5 +14,3 @@ java 언어를 사용하여 MVC구조인 Spring으로 웹 사이트를 구현하
 
 
 
-##<스크린 샷>
-![mainChart](https://user-images.githubusercontent.com/66732896/112921058-11a92200-9145-11eb-9a70-7602fde512a9.png)
