@@ -32,12 +32,15 @@ Java 언어를 사용하여 MVC구조인 Spring으로 웹 사이트를 구현하
 - 커뮤니티 게시판
 
 <게시물 목록 조회>
+
 ![image](https://user-images.githubusercontent.com/66732896/112925344-af541f80-914c-11eb-8da1-8e1672048780.png)
 
 <페이지 2로 목록 조회>
+
 ![image](https://user-images.githubusercontent.com/66732896/112925549-00fcaa00-914d-11eb-963e-5c50c1621745.png)
 
 <Info 로만 조회 시>
+
 ![image](https://user-images.githubusercontent.com/66732896/112925483-e88c8f80-914c-11eb-939c-bd2e6e992e19.png)
 
 -게시판/댓글 목록, 페이징, 분류 및 검색에 따른 결과를 REST API 방식으로 AJAX를 통해 데이터만 주고 받도록 구현하였으며 DB에 저장된 게시물 수에 따라 혹은 검색 조건에 따른 게시물 수에 따라 페이징 번호가 부여됩니다.
