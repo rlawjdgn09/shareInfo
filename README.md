@@ -9,7 +9,7 @@
 - Spring tx/ Spring security
 - Oracle DatatBase 11g 기준(SQL/저장공간 구성)
 
--Java 언어를 사용하여 MVC구조인 Spring으로 웹 사이트를 구현
+-Java 언어를 사용하여 MVC구조인 Spring으로 웹 사이트를 구현   
 -OracleDB를  MyBatis로 매핑
 
 ## <스크린 샷 및 설명
