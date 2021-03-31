@@ -18,8 +18,8 @@
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
 
-
-<details open>회원가입
+<h4>회원가입</h4>
+<details open>
   
 ![image](https://user-images.githubusercontent.com/66732896/112924723-a151cf00-914b-11eb-85ce-d642ade15111.png)
 
