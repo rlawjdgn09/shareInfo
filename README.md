@@ -19,7 +19,7 @@
 
 
 
-<details open>
+<details open><h4>회원가입</h4>
   <summary>
     <h4>회원가입</h4>
   </summary>
