@@ -18,7 +18,7 @@
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
 <h3>회원 가입</h3>
-<details open>
+<details close>
   <summary> 
     <b>회원 가입 스크린샷</b><br>
   </summary>
@@ -31,7 +31,7 @@
 
 
 <h3>로그인</h3>
-<details open>
+<details close>
   <summary> 
     <b>로그인 스크린샷</b><br>
   </summary>
@@ -44,7 +44,7 @@
 -로그인시 db에 저장된 권한에 따라 사용 기능을 구분
 
 <h3>마이 페이지</h3>
-<details open>
+<details close>
   <summary> 
     <b>마이 페이지 스크린샷</b><br>
   </summary>
@@ -56,7 +56,7 @@
 -본인일 경우에만 가능하며, 수정 데이터를 입력 시 DB에 수정이 되도록 구현
 
 <h3>커뮤니티 게시판</h3>
-<details open>
+<details close>
   <summary> 
     <b>케뮤니티 게시판 스크린샷</b><br>
   </summary>
@@ -80,7 +80,7 @@
 
 <h3>상세 보기</h3> 
 
-<details open>
+<details close>
   <summary> 
     <b>상세 보기 스크린샷</b><br>
   </summary>
