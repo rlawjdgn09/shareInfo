@@ -23,7 +23,7 @@
 - 사용자가 필요로 하는 기능만을 구현했기에 쉽고 편리하게 사용 가능
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
-<h3 href="https://github.com/rlawjdgn09/shareInfo/blob/main/src/main/java/org/spring5/controller/MemberController.java">회원 가입</h3>
+<h3 onClick="https://github.com/rlawjdgn09/shareInfo/blob/main/src/main/java/org/spring5/controller/MemberController.java">회원 가입</h3>
 <details close>
   <summary> 
     <b>회원 가입 스크린샷</b><br>
