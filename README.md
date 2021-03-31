@@ -17,13 +17,25 @@
 - 사용자가 필요로 하는 기능만을 구현했기에 쉽고 편리하게 사용 가능
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
-
-
-<details open><h4>회원가입</h4>
-  <summary>
-    <h4>회원가입</h4>
+<details open>
+  <summary> 
+    <b>초기화 블럭에는 '클래스 초기화 블럭'과 '인스턴스 초기화 블럭' 2종류가 있다.</b><br>
+      <h6>클래스 초기화 블럭 : 클래스가 메모리에 처음 로딩될 때 한 번만 수행<br>
+          인스턴스 초기화 블럭 : 생성자와 같이 인스턴스를 생성할 때 마다 수행된다.<br>
+          +)생성자 보다 인스턴스 초기화 블럭이 먼저 수행된다는 사실도 기억하자!
+      </h6> 
   </summary>
-  
+   <img src=https://github.com/luckyjek/TIL_/blob/main/Java/image/blokTest.jpg>
+    <h6>클래스 초기화 블럭이 가장 먼저 수행되어 'static{}'이 화면에 출력된다.<br>
+        그 다음에 main메서드가 수행되어 BlokTest인스턴스가 생성되면서 인스턴스 초기화블럭이<br>
+        먼저 수행되고, 끝으로 생성자가 수행된다. <br>
+        즉, 클래스 초기화 블럭은 처음 메모리에 로딩될 때 한번 만 수행되었지만, <br>
+        인스턴스 초기화 블럭은 인스턴스가 생성될 때 마다 수행되었다.
+    </h6>
+</details>
+
+<details open>
+ 
 ![image](https://user-images.githubusercontent.com/66732896/112924723-a151cf00-914b-11eb-85ce-d642ade15111.png)
 
 </details>
