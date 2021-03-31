@@ -17,7 +17,7 @@
 - 사용자가 필요로 하는 기능만을 구현했기에 쉽고 편리하게 사용 가능
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
--회원 가입
+<h3>회원 가입</h3>
 <details open>
   <summary> 
     <b>회원 가입 스크린샷</b><br>
@@ -35,6 +35,7 @@
   <summary> 
     <b>로그인 스크린샷</b><br>
   </summary>
+  
 ![image](https://user-images.githubusercontent.com/66732896/112925056-32c14100-914c-11eb-97ce-58ee051ac3aa.png)
 
 </details>
