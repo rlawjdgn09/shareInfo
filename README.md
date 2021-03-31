@@ -17,14 +17,12 @@
 - 사용자가 필요로 하는 기능만을 구현했기에 쉽고 편리하게 사용 가능
 - 취업생들끼리 정보 및 팁들을 소통하며 도움이 되어 성공적인 취업을 도모하는 웹 사이트
 
-<details open>
-  <summary> 
-    <b>초기화 블럭에는 '클래스 초기화 블럭'과 '인스턴스 초기화 블럭' 2종류가 있다.</b><br>
-  </summary>
-</details>
 
-<details open>
- 
+<<details open>
+  <summary> 
+    <b>회원가입 </b><br>
+  </summary>
+
 ![image](https://user-images.githubusercontent.com/66732896/112924723-a151cf00-914b-11eb-85ce-d642ade15111.png)
 
 </details>
