@@ -19,9 +19,13 @@
 
 
 - 회원가입
+<details open>
+  
 ![image](https://user-images.githubusercontent.com/66732896/112924723-a151cf00-914b-11eb-85ce-d642ade15111.png)
 
+</details>
 -회원 가입과 동시에 사용자로써 권한이 주어지고 입력된 데이터들이 DB에 저장
+
 
 - 로그인
 ![image](https://user-images.githubusercontent.com/66732896/112925056-32c14100-914c-11eb-97ce-58ee051ac3aa.png)
